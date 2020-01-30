@@ -75,6 +75,7 @@ $(document).ready(function() {
                         }
                         */
                         $(".ingredients-list").append(populateTableWithRecipeData(results));
+                        $('[data-toggle="tooltip"]').tooltip();
                     }
                 }
             });
@@ -151,6 +152,7 @@ $(document).ready(function() {
                         }
                         */
                         $(".ingredients-list").append(populateTableWithRecipeData(results));
+                        $('[data-toggle="tooltip"]').tooltip();
                     }
                 }
             });
@@ -161,6 +163,20 @@ $(document).ready(function() {
     $(".close-panel").click(function() {
         $('#results-panel').animate({left: "-600px"});
         $("#results-panel").addClass("hidden");
+    });
+
+    $(".toggle-ingredients-panel").click(function() {
+        if($(".ingredients-panel").hasClass("isHidden")) {
+            $(".ingredients-panel").removeClass("isHidden");
+        } else {
+            $(".ingredients-panel").addClass("isHidden");
+        }
+
+        if($(".ingredients-panel-2").hasClass("isHidden")) {
+            $(".ingredients-panel-2").removeClass("isHidden");
+        } else {
+            $(".ingredients-panel-2").addClass("isHidden");
+        }
     });
 
 
@@ -182,13 +198,13 @@ $(document).ready(function() {
                 recipe_totalTime = "Less than 1 min."
             }
 
-            var recipeTooltip = "Cal: " + Math.round(recipe_calories) + "&#010;Prep: " + recipe_totalTime;
+            var recipeTooltip = "Cal: " + Math.round(recipe_calories) + "<br>Prep: " + recipe_totalTime;
 
             var recipeData ="<tr>" +
                                 "<td style='text-align:center;background-color:#194769;'>" +
                                     //"<a href='https://www.google.com' target='_blank' class='recipe-link' style='font-family:fantasy;'><h1>" + recipe_name + "</h1></a>" +
                                     //"<a href='RecipeDisplay.php?RecipeID=" + recipe_id + "'  target='_blank' class='recipe-link' style='font-family:fantasy;'><h1>" + recipe_name + "</h1></a>" +
-                                    "<a href='" + recipe_url + "' target='_blank' class='recipe-link' style='font-family:fantasy;'><h1>" + recipe_name + "</h1></a>" +
+                                    "<a href='" + recipe_url + "' target='_blank' class='recipe-link' style='font-family:fantasy;text-decoration:none;'><h1>" + recipe_name + "</h1></a>" +
                                 "</td>" +
                             "</tr>" +
                             "<tr>" +
@@ -196,7 +212,7 @@ $(document).ready(function() {
                                     "<div style='border-radius:50px;padding:10px;align:center;margin:auto;background-color:#d14343;'>" +
                                         "<img src='" + recipe_image + "' style='width: 50%;border-radius:30px;'>" +
                                         //"<div style='float:right;'>" +
-                                            "<i class='fa fa-info-circle' style='float:right;font-size:24px;' data-toggle='tooltip' title='" + recipeTooltip + "'></i>" +
+                                            "<i class='fa fa-info-circle' style='float:right;font-size:24px;' data-toggle='tooltip' data-html='true' title='" + recipeTooltip + "'></i>" +
                                         //"</div>" +
                                     "</div>" +
                                 "</td>" +
@@ -204,8 +220,7 @@ $(document).ready(function() {
 
             builtRecipeDataList = builtRecipeDataList + recipeData;
         }
+        //$('[data-toggle="tooltip"]').tooltip();
         return builtRecipeDataList;
     }
-
-    $('[data-toggle="tooltip"]').tooltip()
 }) 
