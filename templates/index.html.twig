@@ -83,6 +83,9 @@
                     <a class="nav-link" href="#" style="text-decoration:none;"><h4 style="font-family:fantasy;color:#ffc266;">Update Recipe</h4></a>
                 </li>
             </ul>
+            <span class="navbar-text">
+                <a href="#" style="text-decoration:none;">Login</a>
+            </span>
         </nav>
 
         <div class="container">
@@ -109,10 +112,9 @@
 
                 <div class="col-sm">
                     Col 3
-                    <table style="width:350px;">
+                    <table class="ingredients-panel" style="width:350px;">
                         <tr>
                             <th>Vegetables</th>
-                            <th>Fruits</th>
                         </tr>
                         <tr>
                             <td>
@@ -126,6 +128,49 @@
                                     <img src="images/ingredients/cucumbers.png" draggable="true" id="cucumbers" ondragstart="drag(event)" width="64" height="64">
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
+                            <th>Meat</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!--Meat-->
+                                <div id="divv4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                    <img src="images/ingredients/chicken.png" draggable="true" id="chicken" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/ground_beef.png" draggable="true" id="ground_beef" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/tuna.png" draggable="true" id="tuna" ondragstart="drag(event)" width="64" height="64">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Rice & Alternatives</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!--Rice & Alternatives-->
+                                <div id="divv4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                    <img src="images/ingredients/rice.png" draggable="true" id="rice" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/bread.png" draggable="true" id="bread" ondragstart="drag(event)" width="64" height="64">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center">
+                                <button class="toggle-ingredients-panel">
+                                    <img src="images/flip_menu_icon.png" width="32" height="32">
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+
+                    <table class="ingredients-panel-2 isHidden" style="width:350px;">
+                        <tr>
+                            <th>Fruits</th>
+                        </tr>
+                        <tr>
                             <td>
                                 <!--Fruits-->
                                 <div id="divv4" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -138,23 +183,13 @@
                                     <img src="images/ingredients/pear.png" draggable="true" id="pear" ondragstart="drag(event)" width="64" height="64">
                                     <img src="images/ingredients/apple.png" draggable="true" id="apple" ondragstart="drag(event)" width="64" height="64">
                                     <img src="images/ingredients/lemon.png" draggable="true" id="lemon" ondragstart="drag(event)" width="64" height="64">
-                                    
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <th>Meat</th>
                             <th>Dairy</th>
                         </tr>
                         <tr>
-                            <td>
-                                <!--Meat-->
-                                <div id="divv4" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                    <img src="images/ingredients/chicken.png" draggable="true" id="chicken" ondragstart="drag(event)" width="64" height="64">
-                                    <img src="images/ingredients/ground_beef.png" draggable="true" id="ground_beef" ondragstart="drag(event)" width="64" height="64">
-                                    <img src="images/ingredients/tuna.png" draggable="true" id="tuna" ondragstart="drag(event)" width="64" height="64">
-                                </div>
-                            </td>
                             <td>
                                 <!--Dairy-->
                                 <div id="divv4" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -165,16 +200,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Rice & Alternatives</th>
                             <th>Oils</th>
                         </tr>
                         <tr>
-                            <td>
-                                <!--Rice & Alternatives-->
-                                <div id="divv4" ondrop="drop(event)" ondragover="allowDrop(event)">
-                                    <img src="images/ingredients/watermelon.png" draggable="true" id="watermelon" ondragstart="drag(event)" width="64" height="64">
-                                </div>
-                            </td>
                             <td>
                                 <!--Oils-->
                                 <div id="divv4" style="min-height:10px;" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -183,6 +211,13 @@
                                     <img src="images/ingredients/corn_oil.png" draggable="true" id="corn_oil" ondragstart="drag(event)" width="32" height="64">
                                     <img src="images/ingredients/coconut_oil.png" draggable="true" id="coconut_oil" ondragstart="drag(event)" width="32" height="64">
                                 </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center">
+                                <button class="toggle-ingredients-panel">
+                                    <img src="images/flip_menu_icon.png" width="32" height="32">
+                                </button>
                             </td>
                         </tr>
                     </table>
@@ -207,8 +242,6 @@
 
             
         </div>
-
-        <i class="fa fa-info-circle"></i>
 
 
         <!--Footer-->
