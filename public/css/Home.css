@@ -62,4 +62,6 @@ a.recipe-link:hover {
     color: yellow;
 }
 
-
+.isHidden {
+    display:none;
+}
