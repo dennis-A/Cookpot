@@ -4,7 +4,7 @@
 		
 		private $host = 'localhost';
 		private $user = 'root';
-		private $pw = 'kamikaze589';
+		private $pw = '';
 		private $db = 'cookpotdatabase';
 		
 		private static $_instance;
