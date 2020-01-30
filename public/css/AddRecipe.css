@@ -1,0 +1,14 @@
+
+#center-screen {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+}
+
+#recipe-form {
+    width:100%;
+}
+
+#recipe-form tr, td {
+    padding: 5px;
+}

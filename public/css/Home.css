@@ -1,0 +1,65 @@
+#center-screen {
+    position: absolute;
+    top: 55%;
+    /*left: 45%;*/
+}
+
+#div1 {
+    float: left;
+    width: 200px;
+    height: 65px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    /*left: 45%;*/
+    top: 75%;
+    position: absolute;
+}
+
+#div3 {
+    /*float: right;*/
+    width: 70%;
+    height: 65px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    /*left: 3%;
+    top: 15%;
+    position: absolute;*/
+}
+
+table {
+    /*margin-left: 50%;
+    margin-top: 5%;*/
+}
+
+table, td {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+table.ingredients-list, td.ingredients-list {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.btn.btn-secondary {
+    /*margin-left: 50%;
+    margin-top: 40%;*/
+}
+
+a.recipe-link {
+    color:#ede451;
+    text-decoration: none;
+}
+
+a.recipe-link:hover {
+    color: #d6c9c9;
+}
+        
+.recipeLink:hover {
+    color: yellow;
+}
+
+

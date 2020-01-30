@@ -1,0 +1,260 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SymphArt Articles{% endblock %}
+
+{% block body %}
+    {% if (1==0) %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Article Title</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hello</td>
+                    <td>Hi</td>
+                </tr>
+            </tbody>
+        </table>
+    {% else %}
+        
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/CookpotHelper.js?v=2.0"></script>
+        <link rel="stylesheet" type="text/css" href="css/Layout.css">
+        <link rel="stylesheet" type="text/css" href="css/Home.css?v=1.8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--
+        <link rel="stylesheet" type="text/css" href="Bootstrap/css/bootstrap.css" >
+        <script src="Bootstrap/js/bootstrap.js" > </script>
+        -->
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
+        <!--
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        -->
+        
+    </head>
+
+    <body style="margin:0px;background-color:#fcf2e6;">
+        <!--Header-->
+        <?php
+            include_once("Header.php");
+        ?>
+
+        <!--
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                </ul>
+                <span class="navbar-text">
+                Navbar text with an inline element
+                </span>
+            </div>
+        </nav>
+        -->
+        
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tooltip" title="hooray!" href="#" style="text-decoration:none;"><h4 style="font-family:fantasy;color:#ffc266;">All Recipes</h4></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AddRecipe.php" style="text-decoration:none;"><h4 style="font-family:fantasy;color:#ffc266;">Add Recipe</h4></a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#" style="text-decoration:none;"><h4 style="font-family:fantasy;color:#ffc266;">Update Recipe</h4></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div  id="results-panel" class="hidden" style="width:30%;height:100%;background-color:#33b555;position:absolute;left:-600px;overflow:scroll;">
+                <div style="text-align:right;"><button class="close-panel">x</button></div>
+                <table class="ingredients-list"></table>    
+            </div>
+            <div class="row">
+                <div class="col-sm" style="position:static;">
+                    Col 1
+                </div>
+
+                <div class="col-sm">
+                    Col 2
+                    <!-- Content for cookpot goes here -->
+                    <div id="center-screen">
+                        <img src="images/cookpot_img.png">
+                    </div>
+
+                    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <input type="hidden" id="hiddenIngredients">
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    Col 3
+                    <table style="width:350px;">
+                        <tr>
+                            <th>Vegetables</th>
+                            <th>Fruits</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!--Vegetables-->
+                                <div id="divv3" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                    <img src="images/ingredients/tomatoes.png" draggable="true" id="tomatoes" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/lettuce.png" draggable="true" id="lettuce" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/carrot.png" draggable="true" id="carrot" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/broccoli.png" draggable="true" id="broccoli" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/spinach.png" draggable="true" id="spinach" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/cucumbers.png" draggable="true" id="cucumbers" ondragstart="drag(event)" width="64" height="64">
+                                </div>
+                            </td>
+                            <td>
+                                <!--Fruits-->
+                                <div id="divv4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                    <img src="images/ingredients/watermelon.png" draggable="true" id="watermelon" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/banana.png" draggable="true" id="banana" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/grapes.png" draggable="true" id="grapes" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/orange.png" draggable="true" id="orange" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/pineapple.png" draggable="true" id="pineapple" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/kiwi.png" draggable="true" id="kiwi" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/pear.png" draggable="true" id="pear" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/apple.png" draggable="true" id="apple" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/lemon.png" draggable="true" id="lemon" ondragstart="drag(event)" width="64" height="64">
+                                    
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Meat</th>
+                            <th>Dairy</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!--Meat-->
+                                <div id="divv4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                    <img src="images/ingredients/chicken.png" draggable="true" id="chicken" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/ground_beef.png" draggable="true" id="ground_beef" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/tuna.png" draggable="true" id="tuna" ondragstart="drag(event)" width="64" height="64">
+                                </div>
+                            </td>
+                            <td>
+                                <!--Dairy-->
+                                <div id="divv4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                    <img src="images/ingredients/milk.png" draggable="true" id="milk" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/cheese.png" draggable="true" id="cheese" ondragstart="drag(event)" width="64" height="64">
+                                    <img src="images/ingredients/eggs.png" draggable="true" id="eggs" ondragstart="drag(event)" width="64" height="64">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Rice & Alternatives</th>
+                            <th>Oils</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!--Rice & Alternatives-->
+                                <div id="divv4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                    <img src="images/ingredients/watermelon.png" draggable="true" id="watermelon" ondragstart="drag(event)" width="64" height="64">
+                                </div>
+                            </td>
+                            <td>
+                                <!--Oils-->
+                                <div id="divv4" style="min-height:10px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                    
+                                    <img src="images/ingredients/olive_oil.png" draggable="true" id="olive_oil" ondragstart="drag(event)" width="32" height="64">
+                                    <img src="images/ingredients/corn_oil.png" draggable="true" id="corn_oil" ondragstart="drag(event)" width="32" height="64">
+                                    <img src="images/ingredients/coconut_oil.png" draggable="true" id="coconut_oil" ondragstart="drag(event)" width="32" height="64">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--
+                <div id="divv3" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <img src="images/ingredients/eggs.png" draggable="true" id="eggs" ondragstart="drag(event)" width="64" height="64">
+                    <img src="images/ingredients/lemon.png" draggable="true" id="lemon" ondragstart="drag(event)" width="64" height="64">
+                    <img src="images/ingredients/tuna.png" draggable="true" id="tuna" ondragstart="drag(event)" width="64" height="64">
+                    <img src="images/ingredients/broccoli.png" draggable="true" id="broccoli" ondragstart="drag(event)" width="64" height="64">
+                </div>
+
+                <div id="divv4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <img src="images/ingredients/tomatoes.png" draggable="true" id="tomatoes" ondragstart="drag(event)" width="64" height="64">
+                    <img src="images/ingredients/lettuce.png" draggable="true" id="lettuce" ondragstart="drag(event)" width="64" height="64">
+                    <img src="images/ingredients/carrot.png" draggable="true" id="carrot" ondragstart="drag(event)" width="64" height="64">
+                    <img src="images/ingredients/watermelon.png" draggable="true" id="watermelon" ondragstart="drag(event)" width="64" height="64">
+                </div>
+                -->
+            
+            </div>
+
+            
+        </div>
+
+        <i class="fa fa-info-circle"></i>
+
+
+        <!--Footer-->
+        <?php
+            include_once("Footer.php");
+        ?>
+        
+        <script>
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                console.log(data);
+                console.log("drop event");
+                console.log(ev);
+                if(ev.target.tagName == "IMG") {
+                    ev.target.parentNode.appendChild(document.getElementById(data));
+                } else {
+                    ev.target.appendChild(document.getElementById(data));
+                }
+                document.getElementById("hiddenIngredients").value = "something";
+                var evt = new Event('change');
+                document.getElementById("hiddenIngredients").dispatchEvent(evt)
+            }
+            
+            /*
+            function dropToGroup(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                console.log(data);
+                console.log(document.getElementById(data));
+                ev.target.appendChild(document.getElementById(data));
+                document.getElementById("hiddenIngredients").value = "something";
+                var evt = new Event('change');
+                document.getElementById("hiddenIngredients").dispatchEvent(evt)
+            }
+            */
+        </script>
+    </body>
+
+    {% endif %}
+{% endblock %}
